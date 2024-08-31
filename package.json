@@ -4,12 +4,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prebuild": "npm run lint:fix && rm -fr ./bin",
+    "format": "prettier --write *.{js,cjs} src/**/*.ts",
+    "lint": "eslint src/**/*.{js,ts}",
+    "lint:fix": "npm run lint -- --fix",
+    "prebuild": "npm run format && npm run lint:fix && rm -fr ./bin",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "prepack": "npm run build",
-    "lint": "eslint src/**/*.{js,ts}",
-    "lint:fix": "npm run lint -- --fix"
+    "prepack": "npm run build"
   },
   "files": [
     "bin"
