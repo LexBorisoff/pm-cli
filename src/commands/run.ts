@@ -89,8 +89,7 @@ export default async function run(args: ParsedArgs, scriptName?: string) {
   const scripts = getScripts();
 
   if (scriptName != null) {
-    const found = scripts[scriptName];
-    if (found == null) {
+    if (scripts[scriptName] == null) {
       throw new Error('No matching script');
     }
 

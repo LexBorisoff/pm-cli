@@ -57,20 +57,15 @@ export default function parseArgs(): ParsedArgs {
     passThroughFlags.push(...args.slice(passThroughFlagsIndex + 1));
   }
 
-  const lookupLastIndex =
+  const valuesStartIndex = packageManager != null ? 3 : 1;
+  const valuesLastIndex =
     passThroughFlagsIndex >= 0 ? passThroughFlagsIndex + 1 : args.length;
-  const lookupStartIndex = packageManager != null ? 3 : 1;
-  const lookupEndIndex = pmFlagsIndex >= 0 ? pmFlagsIndex : lookupLastIndex;
-
-  const values =
-    lookupEndIndex === args.length
-      ? args.slice(lookupStartIndex)
-      : args.slice(lookupStartIndex, lookupEndIndex);
+  const valuesEndIndex = pmFlagsIndex >= 0 ? pmFlagsIndex : valuesLastIndex;
 
   return {
     command,
-    values,
     packageManager,
+    values: args.slice(valuesStartIndex, valuesEndIndex),
     flags: {
       packageManager: pmFlags,
       passThrough: passThroughFlags,
