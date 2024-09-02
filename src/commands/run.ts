@@ -1,24 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { PackageJson } from 'type-fest';
-import { getAppHomeDir } from '@lexjs/core';
+import type { PackageJson } from 'type-fest';
 import { prompts } from '@lexjs/cli-utils';
 import { type ParsedArgs } from '../parse-args.js';
 import { PackageManager } from '../enums/package-manager.enum.js';
-import { APP_NAME } from '../constants.js';
+import { operations } from '../operations.js';
 
 function generateCommand(
   script: string,
   { flags, packageManager = PackageManager.NPM }: ParsedArgs,
 ): void {
-  const appHome = getAppHomeDir(APP_NAME);
-  const tmpDir = path.join(appHome, 'tmp');
-  const cmdFile = path.join(tmpDir, 'cmd');
-
-  if (!fs.existsSync(tmpDir)) {
-    fs.mkdirSync(tmpDir, { recursive: true });
-  }
-
+  const { tmp } = operations;
   const pmFlags = flags.packageManager.join(' ');
   const passThrough = flags.passThrough.join(' ');
 
@@ -54,7 +46,7 @@ function generateCommand(
     }
   }
 
-  fs.writeFileSync(cmdFile, cmd);
+  tmp.cmd.write(cmd);
 }
 
 function getScripts(): PackageJson.Scripts {
