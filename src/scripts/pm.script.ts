@@ -12,10 +12,10 @@ pm() {
 		if [ -f "$cmd_file" ]; then
 			local cmd=$(<"$cmd_file")
 
-			# clear temp files
+			# clear tmp file
 			>"$cmd_file"
 
-			# run the script
+			# run the command
 			if [ ! -z "$cmd" ]; then
 				$cmd
 			fi
@@ -37,8 +37,11 @@ function pm {
 
 		if (Test-Path -Path $cmd_file) {
 			$cmd = Get-Content -Path $cmd_file -Raw
+
+			# clear tmp file
 			Clear-Content -Path $cmd_file
 
+			# run the command
 			if (-not [string]::IsNullOrEmpty($cmd)) {
 				Invoke-Expression $cmd
 			}
