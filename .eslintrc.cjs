@@ -23,13 +23,14 @@ module.exports = {
     eqeqeq: ['error', 'smart'],
     'prefer-const': 'warn',
     'object-shorthand': 'error',
-    'no-use-before-define': 'error',
     'consistent-return': 'error',
     'no-else-return': ['error', { allowElseIf: false }],
 
     // typescript
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'error',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -38,7 +39,7 @@ module.exports = {
     '@typescript-eslint/require-await': 'error',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
-      'warn',
+      'error',
       {
         ignoreRestSiblings: true,
       },
