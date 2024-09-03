@@ -4,7 +4,7 @@ import type { PackageJson } from 'type-fest';
 import { prompts } from '@lexjs/cli-utils';
 import { type ParsedArgs } from '../parse-args.js';
 import { PackageManager } from '../enums/package-manager.enum.js';
-import { operations } from '../operations.js';
+import { operations } from '../app/operations.js';
 
 function generateCommand(
   script: string,

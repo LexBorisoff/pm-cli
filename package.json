@@ -12,7 +12,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "prepack": "npm run build",
-    "postinstall": "node bin/initialize.js"
+    "postinstall": "node bin/app/initialize.js"
   },
   "files": [
     "bin"

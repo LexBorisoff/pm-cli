@@ -1,9 +1,8 @@
 import type { FileTree } from '@lexjs/core';
-import { pm } from './scripts/pm.script.js';
-import { source } from './scripts/source.script.js';
+import { pm } from '../scripts/pm.script.js';
+import { source } from '../scripts/source.script.js';
 
-const { platform } = process;
-const isWindows = platform === 'win32';
+const isWindows = process.platform === 'win32';
 
 export const fileTree = {
   bin: {

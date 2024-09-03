@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { initializeApp } from '@lexjs/core';
-import { APP_NAME } from './constants.js';
+import { APP_NAME } from '../constants.js';
 import { fileTree } from './file-tree.js';
 
 if (process.env.npm_config_global === 'true') {

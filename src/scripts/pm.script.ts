@@ -4,7 +4,7 @@ pm() {
 	if command -v lexjs_pm &>/dev/null; then
 		lexjs_pm "$@"
 
-		# get package manager and script values
+		# get command value
 		local script_dir="$(cd "$(dirname "\${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 		local parent_dir="$(dirname "$script_dir")"
 		local cmd_file="$parent_dir/tmp/cmd"
@@ -30,6 +30,7 @@ function pm {
 	if (Get-Command "lexjs_pm" -ErrorAction SilentlyContinue) {
 		& lexjs_pm @args
 
+		# get command value
 		$script_dir = Split-Path $PSCommandPath -Parent
 		$parent_dir = Split-Path $script_dir -Parent
 		$cmd_file = "$parent_dir\\tmp\\cmd"
