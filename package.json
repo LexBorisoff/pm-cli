@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@lexjs/cli-utils": "^0.0.1-beta.3",
-    "@lexjs/core": "^0.0.1-beta.5",
+    "@lexjs/core": "^0.0.1-beta.6",
     "chalk": "^5.3.0"
   }
 }
